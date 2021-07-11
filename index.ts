@@ -1,8 +1,6 @@
 import { Client, Collection } from 'discord.js'
 import fs from 'fs'
-import Dotenv from 'dotenv'
 import { config } from './config'
-Dotenv.config()
 
 // eslint-disable-next-line no-undef
 const Token = process.env.DISCORD_TOKEN
