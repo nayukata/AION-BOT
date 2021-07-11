@@ -1,5 +1,4 @@
-import { Message } from 'discord.js'
-import { config } from '../config.js'
+const { Message } = require('discord.js')
 
 module.exports = {
   name: 'help',
@@ -7,13 +6,13 @@ module.exports = {
   aliases: ['commands'],
   usage: '[command name]',
   cooldown: 5,
-  execute(message: Message, args: string[]) {
+  execute(message: typeof Message, args: string[]) {
     const data = []
     const { commands } = message.client
 
     if (!args.length) {
       data.push('コマンドリスト')
-      commands.map((command) => data.push(`・${command.name}`))
+      commands.map((command: any) => data.push(`・${command.name}`))
       data.push(
         `\n\`${config.prefix}help [command name]\` でコマンドの詳細情報を確認できるわよ！`
       )
@@ -25,7 +24,7 @@ module.exports = {
           if (message.channel.type === 'dm') return
           message.reply('DMにコマンドリストを送ったわ！')
         })
-        .catch((error) => {
+        .catch((error: string) => {
           console.error(
             `Could not send help DM to ${message.author.tag}.\n`,
             error
@@ -37,7 +36,7 @@ module.exports = {
     const name = args[0].toLowerCase()
     const command =
       commands.get(name) ||
-      commands.find((c) => c.aliases && c.aliases.includes(name))
+      commands.find((c: any) => c.aliases && c.aliases.includes(name))
 
     if (!command) {
       return message.reply("that's not a valid command!")
