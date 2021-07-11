@@ -1,9 +1,15 @@
 import dayjs from 'dayjs'
 import { Message } from 'discord.js'
-import { saveRespawnTime } from '../api/monster'
-import { rasberg, zaphiel, cheshti, menotios, alukina } from '../data/monsters'
+import { saveRespawnTime } from '../api/monster.js'
+import {
+  rasberg,
+  zaphiel,
+  cheshti,
+  menotios,
+  alukina,
+} from '../data/monsters.js'
 import { getFormattedDate } from '../libs/dayjs'
-import { setRemainder } from '../libs/schedule'
+import { setRemainder } from '../libs/schedule.js'
 
 module.exports = {
   name: 'subjugation',

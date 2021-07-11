@@ -1,5 +1,5 @@
 import { db } from '../libs/firebase-admin'
-import { buildMonster, Monster } from '../types/Monster'
+import { buildMonster, Monster } from '../types/Monster.js'
 
 export const saveRespawnTime = async (
   id: string,

@@ -20,7 +20,9 @@ client.on('message', (message) => {
 
   commandFiles.forEach(async (dir) => {
     const jsDir = dir.split('.')[0] + '.js'
-    const command = await import(`./commands/${jsDir}`)
+    const command = await import(`./commands/${jsDir}`).catch((e) =>
+      console.error(e)
+    )
     // set a new item in the Collection
     // with the key as the command name and the value as the exported module
 
@@ -38,7 +40,10 @@ client.on('message', (message) => {
       (cmd) => cmd.aliases && cmd.aliases.includes(commandName)
     )
 
-  if (!command) return message.reply('コマンドが間違ってるみたいよ？')
+  if (!command) {
+    console.info('commandName', commandName)
+    return message.reply('コマンドが間違ってるみたいよ？')
+  }
 
   try {
     return command.execute(message, args)

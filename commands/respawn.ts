@@ -1,7 +1,7 @@
 import { Message } from 'discord.js'
-import { getMonsters } from '../api/monster'
+import { getMonsters } from '../api/monster.js'
 import { getFormattedDate } from '../libs/dayjs'
-import { Monster } from '../types/Monster'
+import { Monster } from '../types/Monster.js'
 
 module.exports = {
   name: 'respawn',
