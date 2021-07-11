@@ -12,13 +12,16 @@
   },
   "dependencies": {
     "dayjs": "^1.10.5",
-    "discord.js": "^12.5.3"
+    "discord.js": "^12.5.3",
+    "firebase-admin": "^9.10.0"
   },
   "devDependencies": {
+    "@types/dotenv": "^8.2.0",
     "@types/node": "^15.12.5",
     "@types/ws": "^7.4.6",
     "@typescript-eslint/eslint-plugin": "^4.28.1",
     "@typescript-eslint/parser": "^4.28.1",
+    "dotenv": "^10.0.0",
     "eslint": "^7.30.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
