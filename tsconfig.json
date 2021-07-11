@@ -2,7 +2,7 @@
   "compileOnSave": true,
   "compilerOptions": {
       "target": "ESNext",
-      "module": "CommonJS",
+      "module": "ES6",
       "outDir": "./build",
       "rootDir": "./",
       "removeComments": true,
