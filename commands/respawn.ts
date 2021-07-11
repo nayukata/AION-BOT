@@ -6,7 +6,7 @@ import { Monster } from '../types/Monster'
 module.exports = {
   name: 'respawn',
   aliases: ['res', 'repop', 'list', 'ls'],
-  description: 'ネームドモンスターの討伐時間を記録します。',
+  description: 'ネームドモンスターのリスポーン時間を取得します。',
   async execute(message: Message, args: string[]) {
     const monsters = await getMonsters()
     console.log('args', args)

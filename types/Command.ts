@@ -4,6 +4,8 @@ export interface Command {
   name: string
   aliases: string[]
   description: string
+  usage: string
+  cooldown: number
   execute: Execute
 }
 

@@ -1,5 +1,4 @@
 import { Client, Collection } from 'discord.js'
-// const fs = require('fs');
 import fs from 'fs'
 import Dotenv from 'dotenv'
 import { config } from './config'
@@ -48,17 +47,6 @@ client.on('message', (message) => {
       'ごめんなさい、そのコマンドを実行したらエラーになったわ・・・'
     )
   }
-
-  // if (command.startsWith(`${prefix}kill`)) {
-  //   let resMessage = ''
-  //   if (monsterName === ('rasberg' || 'ラスベルグ')) {
-  //     const name: MonsterNames = responseNames['rasberg']
-  //     const start = dayjs().format('MM月DD日 HH:mm')
-  //     const end = dayjs().format('MM月DD日 HH:mm')
-  //     resMessage = createRepopMessage(name, start, end)
-  //   }
-  //   return message.channel.send(resMessage)
-  // }
 })
 
 client.login(Token)
