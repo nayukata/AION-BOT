@@ -18,9 +18,9 @@ client.on('ready', () => {
 client.on('message', (message) => {
   if (!message.content.startsWith(config.prefix) || message.author.bot) return
 
-  commandFiles.forEach((dir) => {
+  commandFiles.forEach(async (dir) => {
     const jsDir = dir.split('.')[0] + '.js'
-    const command = require(`./commands/${jsDir}`)
+    const command = await import(`./commands/${jsDir}`)
     // set a new item in the Collection
     // with the key as the command name and the value as the exported module
 
