@@ -2,6 +2,7 @@
   "author": "NatumeNat",
   "license": "MIT",
   "main": "index.ts",
+  "type": "module",
   "scripts": {
     "start": "node ./build/index.js",
     "debug": "ts-node ./src/index.ts",
