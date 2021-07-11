@@ -12,10 +12,8 @@ module.exports = {
     'ネームドモンスターの討伐時間を記録します。\n`/[command name] モンスター名` で討伐時間の記録ができます。',
   execute(message: Message, args: string[]) {
     const monsterName = args[0]
-    console.log('args', args)
 
     let resMessage = 'そんなモンスターいないわよ！'
-
     const func = () => {
       message.channel.send('時間です')
     }

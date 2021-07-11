@@ -8,11 +8,18 @@ Dotenv.config()
 const Token = process.env.DISCORD_TOKEN
 const client = new Client()
 client.commands = new Collection()
+
 const commandFiles = fs
   .readdirSync('./commands')
   .filter((file) => file.endsWith('.ts'))
 
+client.on('ready', () => {
+  console.info('ready')
+})
+
 client.on('message', (message) => {
+  if (!message.content.startsWith(config.prefix) || message.author.bot) return
+
   commandFiles.forEach((dir) => {
     const jsDir = dir.split('.')[0] + '.js'
     const command = require(`./commands/${jsDir}`)
@@ -22,12 +29,9 @@ client.on('message', (message) => {
     client.commands.set(command.name, command)
   })
 
-  if (!message.content.startsWith(config.prefix) || message.author.bot) return
-
   const args = message.content.slice(config.prefix.length).trim().split(/ +/)
   if (args.length === 0)
     return message.reply('コマンドだけじゃなくてメッセージも入力してね')
-  console.log(args, commandFiles)
   const commandName = args.shift()?.toLowerCase() || ''
 
   const command =
@@ -36,7 +40,6 @@ client.on('message', (message) => {
       (cmd) => cmd.aliases && cmd.aliases.includes(commandName)
     )
 
-  console.log(client.commands.array(), command)
   if (!command) return message.reply('コマンドが間違ってるみたいよ？')
 
   try {

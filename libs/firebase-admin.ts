@@ -14,11 +14,6 @@ const params = {
   clientC509CertUrl: process.env.CLIENT_X509_CERT_URL,
 }
 if (!admin.apps.length) {
-  console.log(
-    'process.env.PRIVATE_KEY',
-    process.env.PRIVATE_KEY?.replace(/\\n/g, '\n')
-  )
-
   admin.initializeApp({
     credential: admin.credential.cert(params),
   })

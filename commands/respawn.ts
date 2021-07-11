@@ -7,9 +7,8 @@ module.exports = {
   name: 'respawn',
   aliases: ['res', 'repop', 'list', 'ls'],
   description: 'ネームドモンスターのリスポーン時間を取得します。',
-  async execute(message: Message, args: string[]) {
+  async execute(message: Message) {
     const monsters = await getMonsters()
-    console.log('args', args)
     const list = createMonstersList(monsters)
     return message.channel.send(list)
   },
@@ -22,6 +21,5 @@ const createMonstersList = (monsters: Monster[]) => {
     const end = getFormattedDate(monster.end)
     return `${monster.name}: ${start} ~ ${end}`
   })
-  console.log(messages)
   return messages.join('\n')
 }
