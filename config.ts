@@ -1,1 +1,1 @@
-module.exports = { prefix: '/' }
+export const config = { prefix: '/' }

@@ -1,6 +1,5 @@
 import { Message } from 'discord.js'
-
-const config = require('./config')
+import { config } from '../config'
 
 module.exports = {
   name: 'help',
