@@ -1,3 +1,4 @@
+import dayjs from 'dayjs'
 import { Message } from 'discord.js'
 import { getMonsters } from '../api/monster.js'
 import { getFormattedDate } from '../libs/dayjs'
@@ -15,7 +16,10 @@ module.exports = {
 }
 
 const createMonstersList = (monsters: Monster[]) => {
-  const monstersAsc = monsters.sort((a, b) => a.start - b.start)
+  const now = dayjs().unix()
+  const monstersAsc = monsters
+    .sort((a, b) => a.start - b.start)
+    .filter((monster) => monster.end < now)
   const messages = monstersAsc.map((monster) => {
     const start = getFormattedDate(monster.start)
     const end = getFormattedDate(monster.end)
