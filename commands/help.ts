@@ -1,4 +1,5 @@
 const { Message } = require('discord.js')
+const config = require('./config.js')
 
 module.exports = {
   name: 'help',

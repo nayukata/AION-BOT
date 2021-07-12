@@ -1,6 +1,6 @@
 import { Client, Collection } from 'discord.js'
 import fs from 'fs'
-import { config } from './config.js'
+const config = require('./config.js')
 
 // eslint-disable-next-line no-undef
 const Token = process.env.DISCORD_TOKEN
