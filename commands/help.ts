@@ -1,5 +1,6 @@
-const { Message } = require('discord.js')
-const config = require('./config.js')
+import { Message } from 'discord.js'
+
+const config = require('./config')
 
 module.exports = {
   name: 'help',
@@ -7,7 +8,7 @@ module.exports = {
   aliases: ['commands'],
   usage: '[command name]',
   cooldown: 5,
-  execute(message: typeof Message, args: string[]) {
+  execute(message: Message, args: string[]) {
     const data = []
     const { commands } = message.client
 
