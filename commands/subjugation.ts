@@ -9,7 +9,7 @@ module.exports = {
   name: 'subjugation',
   aliases: ['kill', 'done', 'kl'],
   description:
-    'ネームドモンスターの討伐時間を記録します。\n`/[command name] モンスター名` で討伐時間の記録ができます。\nリマインダー機能も備えており、対象のNMが沸き時間に入ったタイミングでチャンネルに通知メッセージを送信します。',
+    'ネームドモンスターの討伐時間を記録します。\n`/[command name] モンスター名` で討伐時間の記録ができます。\nリマインダー機能も備えており、対象のNMが沸き時間に入ったタイミングでチャンネルに通知メッセージを送信します。\n\n対応NM\n・ザフィエル\n・チェシュチ\n・ラスベルグ\n・メノティオス\n・アールキナ',
   execute(message: Message, args: string[]) {
     const monsterName = args[0]
 
