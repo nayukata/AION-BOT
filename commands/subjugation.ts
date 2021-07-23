@@ -26,13 +26,13 @@ module.exports = {
     } else if (['zaphiel', 'ザフィエル'].includes(monsterName)) {
       const id = zaphiel.id
       const name = zaphiel.name
-      const { start, end } = createRespawnDate(36, 48)
+      const { start, end } = createRespawnDate(6, 6)
 
       resMessage = respawnManager(id, name, start, end, createRespawnMessage)
     } else if (['cheshti', 'チェシュチ'].includes(monsterName)) {
       const id = cheshti.id
       const name = cheshti.name
-      const { start, end } = createRespawnDate(24, 32)
+      const { start, end } = createRespawnDate(6, 6)
 
       resMessage = respawnManager(id, name, start, end, createRespawnMessage)
     } else if (['menotios', 'メノティオス'].includes(monsterName)) {
@@ -67,7 +67,7 @@ const respawnManager = (
   // メッセージの作成
   const startStr = getFormattedDate(start)
   const endStr = getFormattedDate(end)
-  return `次は ${startStr} ~ ${endStr} に沸くわよ！`
+  return `次の沸き時間： ${startStr} ~ ${endStr} `
 }
 
 const createRespawnDate = (startDiff: number, endDiff: number) => {
