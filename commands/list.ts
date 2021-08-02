@@ -5,8 +5,8 @@ import { getFormattedDate } from '../libs/dayjs'
 import { Monster } from '../types/Monster.js'
 
 module.exports = {
-  name: 'respawn',
-  aliases: ['res', 'repop', 'list', 'ls'],
+  name: 'list',
+  aliases: ['res', 'repop', 'respawn', 'ls'],
   description: 'ネームドモンスターのリスポーン時間を取得します。',
   async execute(message: Message) {
     const monsters = await getMonsters()
