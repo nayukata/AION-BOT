@@ -20,7 +20,7 @@ module.exports = {
     if (['rasberg', 'ラスベルグ'].includes(monsterName)) {
       const id = rasberg.id
       const name = rasberg.name
-      const { start, end } = createRespawnDate(20, 26)
+      const { start, end } = createRespawnDate(20, 28)
 
       resMessage = respawnManager(id, name, start, end, createRespawnMessage)
     } else if (['zaphiel', 'ザフィエル'].includes(monsterName)) {
