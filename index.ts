@@ -15,24 +15,23 @@ client.on('ready', () => {
   console.info('ready')
 })
 
-client.on('message', (message) => {
+client.on('message', async (message) => {
   if (!message.content.startsWith(config.prefix) || message.author.bot) return
-
-  commandFiles.forEach(async (dir) => {
+  commandFiles.map((dir) => {
     const jsDir = dir.split('.')[0] + '.js'
-    const command = await import(`./commands/${jsDir}`).catch((e) =>
-      console.error(e)
-    )
+    const command = require(`./commands/${jsDir}`)
     // set a new item in the Collection
     // with the key as the command name and the value as the exported module
 
     client.commands.set(command.name, command)
+    return command
   })
 
   const args = message.content.slice(config.prefix.length).trim().split(/ +/)
   if (args.length === 0)
     return message.reply('コマンドだけじゃなくてメッセージも入力してね')
   const commandName = args.shift()?.toLowerCase() || ''
+  console.info('commands:', client.commands, 'command:', commandName)
 
   const command =
     client.commands.get(commandName) ||
@@ -41,7 +40,6 @@ client.on('message', (message) => {
     )
 
   if (!command) {
-    console.info('commandName', commandName)
     return message.reply('コマンドが間違ってるみたいよ？')
   }
 

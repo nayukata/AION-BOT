@@ -3,6 +3,7 @@ import { Message } from 'discord.js'
 import { saveRespawnTime } from '../api/monster'
 import { rasberg, zaphiel, cheshti, menotios, alukina } from '../data/monsters'
 import { getFormattedDate } from '../libs/dayjs'
+import { setRemainder } from '../libs/schedule'
 
 module.exports = {
   name: 'kill',
@@ -62,8 +63,8 @@ const respawnManager = (
   // dbに討伐時間を記録
   saveRespawnTime(id, name, start, end)
   // リマインダーの設定
-  // const date = new Date(start * 1000)
-  // setRemainder(id, date, () => func(name))
+  const date = new Date(start * 1000)
+  setRemainder(id, date, () => func(name))
 
   // メッセージの作成
   const startStr = getFormattedDate(start)
