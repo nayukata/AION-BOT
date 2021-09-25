@@ -1,7 +1,14 @@
 import dayjs from 'dayjs'
 import { Message } from 'discord.js'
 import { saveRespawnTime } from '../api/monster'
-import { rasberg, zaphiel, cheshti, menotios, alukina } from '../data/monsters'
+import {
+  rasberg,
+  zaphiel,
+  cheshti,
+  menotios,
+  alukina,
+  shandka,
+} from '../data/monsters'
 import { getFormattedDate } from '../libs/dayjs'
 import { setRemainder } from '../libs/schedule'
 
@@ -44,7 +51,13 @@ module.exports = {
     } else if (['alukina', 'アールキナ'].includes(monsterName)) {
       const id = alukina.id
       const name = alukina.name
-      const { start, end } = createRespawnDate(36, 48)
+      const { start, end } = createRespawnDate(8, 12)
+
+      resMessage = respawnManager(id, name, start, end, createRespawnMessage)
+    } else if (monsterName === 'シャンドゥカ') {
+      const id = shandka.id
+      const name = shandka.name
+      const { start, end } = createRespawnDate(10, 14)
 
       resMessage = respawnManager(id, name, start, end, createRespawnMessage)
     }
@@ -58,13 +71,12 @@ const respawnManager = (
   end: number,
   func: (name: string) => void
 ) => {
-  console.log(func)
-
   // dbに討伐時間を記録
   saveRespawnTime(id, name, start, end)
   // リマインダーの設定
   const date = new Date(start * 1000)
-  setRemainder(id, date, () => func(name))
+  const job = setRemainder(id, date, () => func(name))
+  console.log('job', job)
 
   // メッセージの作成
   const startStr = getFormattedDate(start)

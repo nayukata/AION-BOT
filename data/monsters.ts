@@ -19,8 +19,12 @@ const menotios = {
 }
 
 const alukina = {
-  id: 'h2QHPwWWGvUehaSK5rHuPTV9gHH2',
+  id: 'h2KHPwWWGvUehaSK5rHuPTV9gHH2',
   name: 'アールキナ',
 }
 
-export { rasberg, zaphiel, cheshti, menotios, alukina }
+const shandka = {
+  id: 'a2QHkmSuGVpoEaMC5rHukIVlgHc2',
+  name: 'シャンドゥカ',
+}
+export { rasberg, zaphiel, cheshti, menotios, alukina, shandka }

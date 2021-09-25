@@ -16,8 +16,7 @@ type MonsterNames =
   | 'メノティオス'
   | 'alukina'
   | 'アールキナ'
-  | 'roughbrie'
-  | 'ラフブリ'
+  | 'シャンドゥカ'
 
 // type ResponseNames = {
 //   [key: string]: MonsterNames
